@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    build: .
+    container_name: api-clima-sismo
+    ports:
+      - "3005:3005"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_USUARIO=andrealucas
+      - MONGO_CLAVE=andrealucas1
+      - MONGO_HOST=mongo
+      - MONGO_BASE=topicos
+      - MONGO_PUERTO=27017
+      - PUERTO=3005
+
+
+volumes:
+  mongo-data:

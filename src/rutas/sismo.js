@@ -2,6 +2,15 @@ import express from 'express'
 import  {Sismo}  from '../modelos/sismo.js'
 const router = express.Router()
 
+router.get('/', async (req, res) => {
+  try {
+    const sismos = await Sismo.find()
+    res.json(sismos)
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener los sismos' })
+  }
+})
+
 router.post('/', async (req, res) => {
   try {
     const { fecha, magnitud, ubicacion } = req.body
@@ -18,20 +27,8 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.get('/', async (req, res) => {
-  try {
-    const sismos = await Sismo.find()
-    res.json(sismos)
-  } catch (error) {
-    res.status(500).json({ error: 'Error al obtener los sismos' })
-  }
-})
 
 
-router.delete('/:id', async (req, res) => {
-  await Sismo.findByIdAndDelete(req.params.id)
-  res.send({ mensaje: 'Registro eliminado' })
-})
 
 
 export default router

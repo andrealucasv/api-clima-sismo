@@ -12,7 +12,7 @@ app.use('/api/sismo', rutasSismo)
 const PUERTO = process.env.PUERTO || 3005
 
 mongoose
-  .connect(`mongodb://${process.env.MONGO_USUARIO}:${process.env.MONGO_CLAVE}@${process.env.MONGO_HOST}:${process.env.MONGO_PUERTO}/?authSource=admin`)
+  .connect(`mongodb://${process.env.MONGO_USUARIO}:${process.env.MONGO_CLAVE}@${process.env.MONGO_HOST}:${process.env.MONGO_PUERTO}/${process.env.MONGO_BASE}?authSource=admin`)
   .then(() => {
     console.log('MongoDB esta conectado')
     app.listen(PUERTO, () => {
