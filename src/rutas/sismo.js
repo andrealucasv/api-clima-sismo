@@ -1,5 +1,5 @@
 import express from 'express'
-import  Sismo  from '../modelos/sismo.js'
+import  {Sismo}  from '../modelos/sismo.js'
 const router = express.Router()
 
 router.post('/', async (req, res) => {
@@ -33,12 +33,5 @@ router.delete('/:id', async (req, res) => {
   res.send({ mensaje: 'Registro eliminado' })
 })
 
-router.get('/sismo', (req, res) => {
-  const { fecha, magnitud, ubicacion } = req.query;
-  res.json({
-    fecha,
-    magnitud,
-    ubicacion
-  });
-});
+
 export default router

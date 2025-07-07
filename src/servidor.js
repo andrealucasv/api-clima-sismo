@@ -1,17 +1,12 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import rutasClima from './rutas/clima.js'
 import rutasSismo from './rutas/sismo.js'
 
 dotenv.config()
 
 const app = express()
-
 app.use(express.json())
-
-// RUTAS
-app.use('/api/clima', rutasClima)
 app.use('/api/sismo', rutasSismo)
 
 const PUERTO = process.env.PUERTO || 3005
