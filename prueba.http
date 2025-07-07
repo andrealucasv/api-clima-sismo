@@ -1,9 +1,0 @@
-### Prueba POST a /api/sismo
-POST http://localhost:3005/api/sismo
-Content-Type: application/json
-
-{
-  "fecha": "2025-07-06",
-  "magnitud": 6.7,
-  "ubicacion": "Chile"
-}
