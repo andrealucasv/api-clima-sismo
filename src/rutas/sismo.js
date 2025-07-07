@@ -7,6 +7,7 @@ router.get('/', async (req, res) => {
     const sismos = await Sismo.find()
     res.json(sismos)
   } catch (error) {
+    console.error('Error al obtener los sismos', error)
     res.status(500).json({ error: 'Error al obtener los sismos' })
   }
 })
@@ -14,7 +15,6 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { fecha, magnitud, ubicacion } = req.body
-
     const nuevoSismo = new Sismo({ fecha, magnitud, ubicacion })
     await nuevoSismo.save()
 
@@ -23,6 +23,7 @@ router.post('/', async (req, res) => {
       sismo: nuevoSismo
     })
   } catch (error) {
+    console.error('Error al guardar el sismo:', error)
     res.status(500).json({ error: 'Error al guardar el sismo' })
   }
 })
