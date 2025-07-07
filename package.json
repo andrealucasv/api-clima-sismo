@@ -1,0 +1,32 @@
+{
+  "name": "api-clima-sismo",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/servidor.js",
+  "scripts": {
+    "iniciar": "node src/servidor.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrealucasv/api-clima-sismo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrealucasv/api-clima-sismo/issues"
+  },
+  "homepage": "https://github.com/andrealucasv/api-clima-sismo#readme",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.1"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4",
+    "supertest": "^7.1.1"
+  }
+}

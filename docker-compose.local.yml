@@ -1,0 +1,20 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3005:3005"
+    volumes:
+      - .:/app
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    platform: linux/amd64
+    container_name: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USUARIO}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_CLAVE}
+    ports:
+      - "27017:27017"
